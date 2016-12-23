@@ -6,7 +6,7 @@ class NonEnumerable {
     private b = 2;
 
     @nonenumerable
-    private c = 3;
+    c = 3;
 
     constructor () {
     }
@@ -25,6 +25,12 @@ describe("nonenumerable", () => {
 
     it("shouldn't serialize nonenumerable fields", () => {
         assert.equal(JSON.stringify(nonEnumerable), '{"a":1,"b":2}');
+    });
+
+    it("should support multiple instances", () => {
+        let secondInstance = new NonEnumerable();
+        secondInstance.c = 10;
+        assert.notEqual(secondInstance.c, nonEnumerable.c);
     });
 
 });
