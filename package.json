@@ -8,6 +8,10 @@
     "test": "mocha test/**.ts --compilers ts:ts-node/register",
     "prepublish": "tsc"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/endel/nonenumerable.git"
+  },
   "keywords": [
     "decorator",
     "enumerable",
