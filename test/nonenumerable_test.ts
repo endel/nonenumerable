@@ -1,5 +1,5 @@
 import { assert } from "chai";
-import { nonenumerable } from "../src";
+import { nonenumerable } from "../src/index";
 
 class NonEnumerable {
     public a = 1;
@@ -25,6 +25,19 @@ describe("nonenumerable", () => {
 
     it("shouldn't serialize nonenumerable fields", () => {
         assert.equal(JSON.stringify(nonEnumerable), '{"a":1,"b":2}');
+    });
+
+    it("should get value from object", () => {
+        assert.equal(nonEnumerable.c, 3);
+    });
+
+    it("should set value from object", () => {
+        nonEnumerable.c = 20;
+        assert.equal(nonEnumerable.c, 20);
+    });
+
+    it("Object.getOwnPropertyNames should return non-enumerable ones", () => {
+        assert.deepEqual(Object.getOwnPropertyNames(nonEnumerable), ['a', 'b', 'c']);
     });
 
     it("should support multiple instances", () => {

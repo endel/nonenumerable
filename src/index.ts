@@ -1,26 +1,13 @@
-export function nonenumerable(proto: any, key: string) {
-    const priv = `$${key}`;
-
-    var getter = function () {
-        return this[priv];
-    };
-
-    var setter = function (newVal: any) {
-        if (!this.hasOwnProperty(priv)) {
-            Object.defineProperty(this, priv, {
-                value: newVal,
+export function nonenumerable(target: Object, key: string) {
+    Object.defineProperty(target, key, {
+        get: function () { return undefined; },
+        set: function (this: any, val: any) {
+            Object.defineProperty(this, key, {
+                value: val,
+                writable: true,
                 enumerable: false,
-                writable: true
             });
-        }
-        this[priv] = newVal;
-    };
-
-    if (delete proto[ key ]) {
-        Object.defineProperty(proto, key, {
-            get: getter,
-            set: setter,
-            enumerable: false
-        });
-    }
+        },
+        enumerable: false,
+    });
 }

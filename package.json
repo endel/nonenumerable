@@ -1,6 +1,6 @@
 {
   "name": "nonenumerable",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Decorator to make properties non-enumerable.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -17,10 +17,10 @@
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^3.4.34",
-    "@types/mocha": "^2.2.33",
+    "@types/mocha": "^2.2.44",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "ts-node": "^1.7.2",
-    "typescript": "^2.1.4"
+    "ts-node": "^3.3.0",
+    "typescript": "^2.6.1"
   }
 }
