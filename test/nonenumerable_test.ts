@@ -46,4 +46,9 @@ describe("nonenumerable", () => {
         assert.notEqual(secondInstance.c, nonEnumerable.c);
     });
 
+    it("should allow to delete the variable", () => {
+        delete nonEnumerable.c;
+        assert.equal(nonEnumerable.c, undefined);
+    });
+
 });

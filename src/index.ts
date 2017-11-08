@@ -6,6 +6,7 @@ export function nonenumerable(target: Object, key: string) {
                 value: val,
                 writable: true,
                 enumerable: false,
+                configurable: true,
             });
         },
         enumerable: false,
